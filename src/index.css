@@ -59,23 +59,28 @@ body {
 
 .steps-container {
   display: flex;
-  flex-direction: column-reverse; /* Level 1 at bottom */
-  gap: 10px;
-  margin-top: auto;
+  flex-direction: column; /* Level 1 at top */
+  align-items: flex-start;
+  padding-bottom: 2rem;
 }
 
 .step {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  background: #3e2723; /* Wood-like or solid color for stairs */
+  border: 2px solid #5c3a21;
+  border-bottom: 6px solid #2a1a17; /* 3D stair effect */
+  border-radius: 4px;
   min-height: 50px;
+  min-width: 200px;
   position: relative;
+  margin-bottom: -5px; /* Slight overlap for stair look */
+  z-index: 1;
 }
 
 .step.active {
-  background: rgba(255, 255, 255, 0.1);
+  background: #5c3a21;
   border-left: 5px solid var(--gold);
 }
 

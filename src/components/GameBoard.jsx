@@ -6,16 +6,15 @@ export default function GameBoard({ teams, levelsCount }) {
 
   return (
     <div className="game-board">
-      <div className="ladder-top">
-        <img src="/download.jpeg" alt="قمة النصر" />
-        <h2>قمة النصر</h2>
-      </div>
-      
       <div className="steps-container">
         {levels.map(level => {
           const teamsOnLevel = teams.filter(t => t.level === level);
           return (
-            <div key={level} className={`step ${teamsOnLevel.length > 0 ? 'active' : ''}`}>
+            <div 
+              key={level} 
+              className={`step ${teamsOnLevel.length > 0 ? 'active' : ''}`}
+              style={{ marginRight: `${(level - 1) * 25}px` }}
+            >
               <div className="step-label">مستوى {level}</div>
               <div className="team-avatars">
                 {teamsOnLevel.map(t => (
@@ -32,6 +31,11 @@ export default function GameBoard({ teams, levelsCount }) {
             </div>
           );
         })}
+      </div>
+
+      <div className="ladder-top" style={{ marginTop: '2rem', marginRight: `${(levelsCount - 1) * 25}px` }}>
+        <img src="/download.jpeg" alt="قمة النصر" style={{width: '200px', borderRadius: '10px', boxShadow: '0 0 20px var(--gold)'}} />
+        <h2 style={{color: 'var(--gold)', marginTop: '1rem'}}>قمة النصر</h2>
       </div>
     </div>
   );
